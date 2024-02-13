@@ -1,0 +1,9 @@
+[workspace]
+resolver = "2"
+members = ["cloud-consumer", "cloud-provider/aws", "echo-server"]
+
+[profile.release]
+lto = true
+opt-level = "z"
+strip = "debuginfo"
+codegen-units = 1

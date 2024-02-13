@@ -1,0 +1,13 @@
+[package]
+name = "cloud-consumer"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.79"
+reqwest = "0.11.24"
+tokio = { version = "1.36.0", features = ["full"] }
+wasmtime = { version = "17.0.1", features = ["component-model", "async"] }
+wasmtime-wasi = "17.0.1"
