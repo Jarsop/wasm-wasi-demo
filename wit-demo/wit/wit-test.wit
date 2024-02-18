@@ -1,0 +1,36 @@
+package test:wit-test@0.0.1;
+
+interface io {
+  print: func(msg: string);
+}
+
+interface http {
+  enum method {
+    get,
+    head,
+    post,
+    put,
+    delete,
+    connect,
+    options,
+    trace,
+    patch,
+  }
+
+  type status-code = u16;
+
+  request: func(method: method, url: string, body: string) -> (status-code: status-code, message: option<string>);
+}
+
+world input-output {
+  export io;
+}
+
+world http-web {
+  export http;
+  import io;
+}
+
+world client {
+  import http;
+}

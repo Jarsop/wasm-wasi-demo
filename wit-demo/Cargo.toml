@@ -1,0 +1,25 @@
+workspace = { members = [ "app","components/http", "components/io"] }
+[package]
+name = "wit-test"
+version = "0.1.0"
+edition = "2021"
+
+[package.metadata.component]
+package = "test:wit-test"
+
+[package.metadata.component.target]
+path = "./wit/wit-test.wit"
+world = "client"
+
+[package.metadata.component.dependencies]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+wit-bindgen = { version = "0.18.0", default-features = false, features = [
+  "realloc",
+] }
+
+[profile.release]
+lto = true
+opt-level = 's'

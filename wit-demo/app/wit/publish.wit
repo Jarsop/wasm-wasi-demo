@@ -1,0 +1,19 @@
+package app:publish;
+
+world publish {
+  import host: interface {
+    variant method {
+      get,
+      post,
+      put,
+      delete
+    }
+
+    type status-code = u16;
+
+    fetch: func(method: method, url: string, body: option<string>) -> (status-code: status-code, body: option<string>);
+  }
+
+  type status-code = u16;
+  export publish: func(payload: string) -> (status-code: status-code, body: option<string>);
+}
